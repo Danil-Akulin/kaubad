@@ -3,29 +3,29 @@
 $yhendus=new mysqli("localhost", "danil2", "123456", "danilakulin");
 
 //$otsisona - otsingularity
-function kysiKaupadeAndmed($sorttulp="nimetus", $otsisona=""){
+function kysiKaupadeAndmed($sorttulp="maakonnanimi", $otsisona=""){
     global $yhendus;
-    $lubatudtulbad=array("nimetus", "grupinimi", "hind");
+    $lubatudtulbad=array("maakonnakeskus", "maakonnanimi", "temperatuur");
     if(!in_array($sorttulp, $lubatudtulbad)){
         return "lubamatu tulp";
     }
     //addslashes stripslashes lisab langioone kustutamine
     $otsisona=addslashes(stripslashes($otsisona));
-    $kask=$yhendus->prepare("SELECT kaubad.id, nimetus, grupinimi, hind
-       FROM kaubad, kaubagrupid
-       WHERE kaubad.kaubagrupi_id=kaubagrupid.id
-        AND (nimetus LIKE '%$otsisona%' OR grupinimi LIKE '%$otsisona%')
+    $kask=$yhendus->prepare("SELECT ilmatemperatuuri.id, maakonnakeskus, maakonnanimi, temperatuur
+       FROM ilmatemperatuuri, maakondadejaoks
+       WHERE ilmatemperatuuri.maakonna_id=maakondadejaoks.id
+        AND (maakonnakeskus LIKE '%$otsisona%' OR maakonnanimi LIKE '%$otsisona%')
        ORDER BY $sorttulp");
     //echo $yhendus->error;
-    $kask->bind_result($id, $nimetus, $grupinimi, $hind);
+    $kask->bind_result($id, $maakonnakeskus, $maakonnanimi, $temperatuur);
     $kask->execute();
     $hoidla=array();
     while($kask->fetch()){
         $kaup=new stdClass();
         $kaup->id=$id;
-        $kaup->nimetus=htmlspecialchars($nimetus);
-        $kaup->grupinimi=htmlspecialchars($grupinimi);
-        $kaup->hind=$hind;
+        $kaup->maakonnakeskus=htmlspecialchars($maakonnakeskus);
+        $kaup->maakonnanimi=htmlspecialchars($maakonnanimi);
+        $kaup->temperatuur=$temperatuur;
         array_push($hoidla, $kaup);
     }
     return $hoidla;
@@ -47,38 +47,38 @@ function looRippMenyy($sqllause, $valikunimi, $valitudid=""){
     $tulemus.="</select>";
     return $tulemus;
 }
-
-
   //lisab uuekaubagrupi
-  function lisaGrupp($grupinimi){
+  function Linn_lisamine($maakonnakeskus){
      global $yhendus;
-     $kask=$yhendus->prepare("INSERT INTO kaubagrupid (grupinimi)
+     $kask=$yhendus->prepare("INSERT INTO maakondadejaoks (maakonnakeskus)
                       VALUES (?)");
-     $kask->bind_param("s", $grupinimi);
+     $kask->bind_param("s", $maakonnakeskus);
      $kask->execute();
   }
 
-  function lisaKaup($nimetus, $kaubagrupi_id, $hind){
+
+  function lisaMaakond($kuupaev, $maakonnanimi, $temperatuur){                                 //feafaeffafaefefeafeafafeafafaf
      global $yhendus;
      $kask=$yhendus->prepare("INSERT INTO
-       kaubad (nimetus, kaubagrupi_id, hind)
+       ilmatemperatuuri (kuupaev, maakonnanimi, temperatuur)
        VALUES (?, ?, ?)");
-     $kask->bind_param("sid", $nimetus, $kaubagrupi_id, $hind);
+     $kask->bind_param("sid", $kuupaev, $maakonnanimi, $temperatuur);
      $kask->execute();
   }
+
   //kustuta
-  function kustutaKaup($kauba_id){
+  function kustutaMaakond($kauba_id){
      global $yhendus;
-     $kask=$yhendus->prepare("DELETE FROM kaubad WHERE id=?");
+     $kask=$yhendus->prepare("DELETE FROM ilmatemperatuuri WHERE id=?");
      $kask->bind_param("i", $kauba_id);
      $kask->execute();
   }
   //muudab andmed tabelis
-  function muudaKaup($kauba_id, $nimetus, $kaubagrupi_id, $hind){
+  function muudaMaakond($kauba_id, $maakonnakeskus, $maakonna_id, $temperatuur){
      global $yhendus;
-     $kask=$yhendus->prepare("UPDATE kaubad SET nimetus=?, kaubagrupi_id=?, hind=?
+     $kask=$yhendus->prepare("UPDATE ilmatemperatuuri SET maakonnakeskus=?, maakonna_id=?, temperatuur=?
                       WHERE id=?");
-     $kask->bind_param("sidi", $nimetus, $kaubagrupi_id, $hind, $kauba_id);
+     $kask->bind_param("sidi", $maakonnakeskus, $maakonna_id, $temperatuur);
      $kask->execute();
   }
 

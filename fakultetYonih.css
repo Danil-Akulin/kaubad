@@ -1,6 +1,6 @@
 body{
     color: black;
-    background-color: rgba(88, 88, 74, 0.171);                             /*new command*/
+    background-color: rgba(89, 88, 74, 0.171);                             /*new command*/
     font-family: 'Roboto', sans-serif;
 }
 
@@ -23,4 +23,13 @@ body{
     padding: 10px;
     height: 300px; /* Should be removed. Only for demonstration */
     text-align:center
+}
+div{
+    font-size: 20px;
+    color: black;
+}
+
+h2{
+    font-size: 35px;
+
 }
