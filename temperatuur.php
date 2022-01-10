@@ -1,5 +1,11 @@
 <?php
 require("abiFunctioonid2.php");
+session_start();
+/*if(isSet($_REQUEST["tuvastamine"])){
+    header("Location: register.php");
+    exit();
+}*/
+
 if(isSet($_REQUEST["maakonnadlisamine"])){
     Linn_lisamine($_REQUEST["uuemaakonnakeskus"]);
     header("Location: temperatuur.php");
@@ -30,6 +36,21 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
     <link rel ="stylesheet" type="text/css" href="fakultetYonih.css">
 </head>
 <body>
+<div id="menuArea">
+    <a href="register.php">Loo uus kasutaja</a>
+    <?php
+    if(isset($_SESSION['unimi'])){
+        ?>
+        <h1>Tere, <?="$_SESSION[unimi]"?></h1>
+        <a href="logout2.php">Logi välja</a>
+        <?php
+    } else {
+        ?>
+        <a href="loginAB2.php">Logi sisse</a>
+        <?php
+    }
+    ?>
+</div>
 <div class="row"> <!-- делит на 3 стольбца -->
 <form action="temperatuur.php">
     <div class="header"><h2>Maakond Temperatuurdid</h2></div>
