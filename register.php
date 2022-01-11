@@ -1,7 +1,7 @@
 <?php
 $yhendus = new mysqli("localhost", "danil2", "123456", "danilakulin");
 session_start();
-$error = $_SESSION["error"]="Kasutaja on juba olemas";
+$error = $_SESSION['error'] ?? "";
 //uue kasutaja lisamine andmetabeli sisse
 
 
@@ -63,14 +63,17 @@ isadmin INT
 <head>
     <title>Registreerimisvorm</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel ="stylesheet" type="text/css" href="fakultetYonih.css">
+    <link rel ="stylesheet" type="text/css" href="css/logincss.css">
 </head>
 <body>
 <?
     if (isset($_SESSION['unimi'])){
 ?>
-<h1>Uue kasutaja registreerimine</h1>
-<form action="register.php" method="post">
+<form action="register.php" method="post" class="modal-content">
+    <div class="imgcontainer">
+        <img src="img/tallinn.jpg" alt="Avatar" class="avatar">
+    </div>
+    <h1>Uue kasutaja registreerimine</h1>
     <label for="knimi">Kasutajanimi</label>
     <input type="text" placeholder="Sisesta kasutajanimi"
            name="knimi" id="knimi" required>
@@ -82,11 +85,15 @@ isadmin INT
     <label for="admin">Kas teha admin?</label>
     <input type="checkbox" name="admin" id="admin" value="1">
     <br>
-    <input type="submit" value="Loo kasutaja">
+    <input type="submit" value="Loo kasutaja"  onclick="window.location.href='loginAB2.php'">
+    <button type="button"
+            onclick="window.location.href='temperatuur.php'"
+            class="cancelbtn">Loobu</button>
 
     <strong> <?=$error ?></strong>
 
 </form>
+
 <?
 }
 ?>

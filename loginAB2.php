@@ -28,7 +28,6 @@ if (isset($_REQUEST['knimi']) && isset($_REQUEST['psw'])) {
             header("Location: temperatuur.php");
             $yhendus->close();
             exit();
-
         }
         echo "kasutaja $login või parool $pass on vale";
         $yhendus->close();
@@ -38,13 +37,17 @@ if (isset($_REQUEST['knimi']) && isset($_REQUEST['psw'])) {
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="fakultetYonih.css">
+        <link rel ="stylesheet" type="text/css" href="css/logincss.css">
         <meta charset="UTF-8">
         <title>Login</title>
     </head>
     <body>
-    <h1>Login vorm</h1>
-    <form action="" method="post">
+
+    <form action="loginAB2.php" method="post" class="modal-content">
+        <div class="imgcontainer">
+            <img src="img/tallinn.jpg" alt="Avatar" class="avatar">
+        </div>
+        <h1>Login vorm</h1>
         <label for="knimi">Kasutajanimi</label>
         <input type="text" placeholder="Sisesta kasutajanimi"
                name="knimi" id="knimi" required>
@@ -55,5 +58,6 @@ if (isset($_REQUEST['knimi']) && isset($_REQUEST['psw'])) {
         <br>
         <input type="submit" value="Logi sisse">
     </form>
+
     </body>
     </html>

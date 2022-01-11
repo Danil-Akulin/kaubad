@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+    background-color: rgba(89, 88, 74, 0.171);
+}
+
+/* Модальное содержание/коробка */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% сверху и по центру */
+    padding: 20px;
+    /*border: 1px solid #888;*/
+    width: 80%; /* Может быть больше или меньше, в зависимости от размера экрана */
+    background-color: rgba(89, 88, 74, 0.179);
+
+}
+
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+
+img.avatar {
+    width: 10%;
+    border-radius: 50%;
+}

@@ -29,11 +29,11 @@ if(isSet($_REQUEST["muutmine"])){
 $ilmatemperatuuri=kysiKaupadeAndmed();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="et">
 <head>
     <title>Maakond</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link rel ="stylesheet" type="text/css" href="fakultetYonih.css">
+    <link rel ="stylesheet" type="text/css" href="css/fakultetYonih.css">
 </head>
 <body>
 <div id="menuArea">
@@ -57,7 +57,9 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
     <dl>
         <div class="column" style="background-color:#aaa;">      <!-- первый -->
         <dt>kuupaev:</dt>
-        <dd><input type="date" name="maakonnakeskus" /></dd>
+        <dd><label>
+                <input type="date" name="maakonnakeskus" />
+            </label></dd>
         </div>
         <div class="column" style="background-color:#aaa;">      <!-- второй -->
         <dt>Maakonad:</dt>
@@ -69,19 +71,23 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
         </div>
         <div class="column" style="background-color:#aaa;">     <!-- третий -->
         <dt>Temperatuur:</dt>
-        <dd><input type="number" name="temperatuur" /></dd>
+        <dd><label>
+                <input type="number" name="temperatuur" />
+            </label></dd>
         </div>
     </dl>
     <br><br><br><br><br><br><br><br><br>
     <input type="submit" name="maakonnalisamine" value="Lisa kaup" />
 </div>
-
+<div class="column">
     <h2>Linn lisamine</h2>
-    <input type="text" name="uuemaakonnakeskus" />
+    <label>
+        <input type="text" name="uuemaakonnakeskus" />
+    </label>
     <input type="submit" name="maakonnadlisamine" value="Lisa grupp" />
-</form>
-<form action="temperatuur.php">
+    <form action="temperatuur.php">
     <h2>Linnad loetelu</h2>
+
     <table>
         <tr>
             <th>Haldus             .</th>
@@ -98,26 +104,36 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
                         <input type="submit" name="katkestus" value="Katkesta" />
                         <input type="hidden" name="muudetudid" value="<?=$kaup->id ?>" />
                     </td>
-                    <td><input type="text" name="maakonnakeskus" value="<?=$kaup->maakonnakeskus ?>" /></td>
+                    <td><label>
+                            <input type="text" name="maakonnakeskus" value="<?=$kaup->maakonnakeskus ?>" />
+                        </label></td>
                     <td><?php
                         echo looRippMenyy("SELECT id, maakonnakeskus FROM maakondadejaoks",
                             "maakonna_id", $kaup->id);
                         ?></td>
-                    <td><input type="text" name="temperatuur" value="<?=$kaup->temperatuur ?>" /></td>
+                    <td><label>
+                            <input type="text" name="temperatuur" value="<?=$kaup->temperatuur ?>" />
+                        </label></td>
 
                 <?php else: ?>
+                <td>
+                    <?php
+                    if(isset($_SESSION['unimi'])){
+                    ?>
                     <td><a href="temperatuur.php?kustutusid=<?=$kaup->id ?>"
                            onclick="return confirm('Kas ikka soovid kustutada?')">x</a>
                         <a href="temperatuur.php?muutmisid=<?=$kaup->id ?>">m</a>
                     </td>
+                <?php } ?>
                     <td><?=$kaup->maakonnakeskus ?></td>
                     <td><?=$kaup->maakonnanimi ?></td>
                     <td><?=$kaup->temperatuur ?></td>
                 <?php endif ?>
+
             </tr>
         <?php endforeach; ?>
     </table>
 </form>
-
+</div>
 </body>
 </html>
