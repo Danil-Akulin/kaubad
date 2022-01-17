@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<Temperatuur>
+    <kuud>
+        <paev>23 september</paev>
+        <temperattur>23</temperattur>
+        <aasta>2005</aasta>
+        <ohuskoorid>
+            <punktid>punktid</punktid>
+        </ohuskoorid>
+    </kuud>
+    <kuud>
+        <paev>24 september</paev>
+        <temperattur>25</temperattur>
+        <aasta>2006</aasta>
+        <ohuskoorid>
+            <punktid>punktid</punktid>
+        </ohuskoorid>
+    </kuud>
+    <kuud>
+        <paev>25 september</paev>
+        <temperattur>26</temperattur>
+        <aasta>2007</aasta>
+        <ohuskoorid>
+            <punktid>punktid</punktid>
+        </ohuskoorid>
+    </kuud>
+    <kuud>
+        <paev>26 september</paev>
+        <temperattur>27</temperattur>
+        <aasta>2008</aasta>
+        <ohuskoorid>
+            <punktid>punktid</punktid>
+        </ohuskoorid>
+    </kuud>
+
+    <kuud>
+        <paev>27 september</paev>
+        <temperattur>28</temperattur>
+        <aasta>2009</aasta>
+        <ohuskoorid>
+            <punktid>punktid</punktid>
+        </ohuskoorid>
+    </kuud>
+   <!-- <kuud>
+        <nimetus>Karu</nimetus>
+        <hind>2300</hind>
+        <vaasta>2022</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 10 - 17 aasta</kirjeldus>
+        </kaubagrupp>
+    </kuud> -->
+    <kuud>
+        <paev>66</paev>
+        <temperattur>66</temperattur>
+    </kuud>
+</Temperatuur>

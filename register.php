@@ -85,7 +85,7 @@ isadmin INT
     <label for="admin">Kas teha admin?</label>
     <input type="checkbox" name="admin" id="admin" value="1">
     <br>
-    <input type="submit" value="Loo kasutaja"  onclick="window.location.href='loginAB2.php'">
+    <input type="submit" value="Loo kasutaja" onclick="window.location.href='loginAB2.php'">
     <button type="button"
             onclick="window.location.href='temperatuur.php'"
             class="cancelbtn">Loobu</button>

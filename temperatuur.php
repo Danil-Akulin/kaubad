@@ -12,8 +12,8 @@ if(isSet($_REQUEST["maakonnadlisamine"])){
     exit();
 }
 if(isSet($_REQUEST["lisaMaakond"])){
-    if(!empty(trim($_REQUEST["kuupaev"])))/* && !empty(trim($_REQUEST["maakonnakeskus"]))*/{
-    lisaMaakond($_REQUEST["kuupaev"], $_REQUEST["maakonnanimi"], $_REQUEST["temperatuur"]);
+    if(!empty(trim($_REQUEST["kuupaev"])) && !empty(trim($_REQUEST["temperatuur"]))){
+    lisaMaakond($_REQUEST["kuupaev"], $_REQUEST["maakonnakeskus"], $_REQUEST["temperatuur"]);
     header("Location: temperatuur.php");
     exit();
 }
@@ -58,11 +58,11 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
         <div class="column" style="background-color:#aaa;">      <!-- первый -->
         <dt>kuupaev:</dt>
         <dd><label>
-                <input type="date" name="maakonnakeskus" />
+                <input type="date" name="kuupaev" />
             </label></dd>
         </div>
         <div class="column" style="background-color:#aaa;">      <!-- второй -->
-        <dt>Maakonad:</dt>
+        <dt>Maakonnakeskus:</dt>
         <dd><?php
             echo looRippMenyy("SELECT id, maakonnakeskus FROM maakondadejaoks",
                 "maakonna_id");
@@ -95,6 +95,10 @@ $ilmatemperatuuri=kysiKaupadeAndmed();
             <th>Maakonnad          .</th>
             <th>Temperatuur</th>
         </tr>
+
+        <div id="NewEra">
+            <a href="uudised.php">Uudised</a>
+        </div>
         <?php foreach($ilmatemperatuuri as $kaup): ?>
             <tr>
                 <?php if(isSet($_REQUEST["muutmisid"]) &&

@@ -81,5 +81,3 @@ function looRippMenyy($sqllause, $valikunimi, $valitudid=""){
      $kask->bind_param("sidi", $maakonnakeskus, $maakonna_id, $temperatuur);
      $kask->execute();
   }
-
-

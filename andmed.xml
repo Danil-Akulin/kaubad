@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<kaubad>
+    <kaup>
+        <nimetus>Auto</nimetus>
+        <hind>934</hind>
+        <vaasta>2005</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 0 - 10 aasta</kirjeldus>
+        </kaubagrupp>
+    </kaup>
+    <kaup>
+        <nimetus>Maasika</nimetus>
+        <hind>10</hind>
+        <vaasta>2022</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 10 - 17 aasta</kirjeldus>
+        </kaubagrupp>
+    </kaup>
+    <kaup>
+        <nimetus>Koer</nimetus>
+        <hind>250</hind>
+        <vaasta>2020</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 10 - 17 aasta</kirjeldus>
+        </kaubagrupp>
+    </kaup>
+    <kaup>
+        <nimetus>Kaas</nimetus>
+        <hind>70</hind>
+        <vaasta>2018</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 10 - 17 aasta</kirjeldus>
+        </kaubagrupp>
+    </kaup>
+    <kaup>
+        <nimetus>Karu</nimetus>
+        <hind>2300</hind>
+        <vaasta>2022</vaasta>
+        <kaubagrupp>
+            <grupinimi>mänguasi</grupinimi>
+            <kirjeldus>lapsele 10 - 17 aasta</kirjeldus>
+        </kaubagrupp>
+    </kaup>
+    <kaup>
+        <nimetus>66</nimetus>
+        <hind>66</hind>
+    </kaup>
+</kaubad>
